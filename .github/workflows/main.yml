@@ -1,6 +1,6 @@
 name: Deploy Blazor WASM to GitHub Page
 env:
-  PUBLISH_DIR: VaycodePages/bin/Release/net6.0/publish/wwwroot
+  PUBLISH_DIR: bin/Release/net6.0/publish/wwwroot
 on:
   push:
     branches: [ master ]
@@ -23,7 +23,7 @@ jobs:
         uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
         with:
           html_path: ${{ env.PUBLISH_DIR }}/index.html
-          base_href: /
+          base_href: /VaycodePages/
     # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
       - name: Add .nojekyll file
         run: touch ${{ env.PUBLISH_DIR}}/.nojekyll
